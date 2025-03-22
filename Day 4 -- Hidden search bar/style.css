@@ -1,0 +1,64 @@
+/*AMDG*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-image: linear-gradient(90deg, #7355fa, #a59ff5);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+}
+
+.search {
+  position: relative;
+  height: 50px;
+}
+
+.search .input {
+  /* background-color: #fff; */
+  /* background-image: linear-gradient(270deg, #777, #fff) */
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24;
+  /* Position relative to the nearest positioned ancestor */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+/* When the button / input is "focused" (i.e. selected)
+We don't want any kind of outline */
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+
+.search.active .input {
+  width: 200px;
+}
+
+.search.active .btn {
+  transform: translateX(198px);
+}

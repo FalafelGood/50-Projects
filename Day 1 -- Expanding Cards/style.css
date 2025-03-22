@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+/* Note that star is the universal selector */
+* {
+    box-sizing: border-box;
+    /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center; /* Horizontal spacing */
+    justify-content: center; /* Vertical spacing */
+    height: 100vh; /*vh == viewport height (percentage of)*/
+    overflow: hidden; /*Hide scrollbar by default*/
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.4s ease-in;
+    background-color: rgb(230,230,230);
+    /* max-width: 400px; */
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+    background-color:gray;
+    padding:5px;
+    border-radius: 3px;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* Special instructions about what to do for very small screens */
+@media (max-width: 1000px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(5)
+    {
+        display: none;
+    }
+}

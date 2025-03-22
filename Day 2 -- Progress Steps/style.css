@@ -1,0 +1,118 @@
+/* AMDG */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* Custom properties -- get added to the root scope */
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
+/* Note that star is the universal selector */
+* {
+    box-sizing: border-box;
+    /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center; /* Horizontal spacing */
+    justify-content: center; /* Vertical spacing */
+    height: 100vh; /*vh == viewport height (percentage of)*/
+    overflow: hidden; /*Hide scrollbar by default*/
+    margin: 0;
+}
+
+/* 
+This doesn't seem to be doing anything? 
+Actually, this is responsible for centering the buttons.
+I guess a button counts as text?
+*/
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between; /* Space elements evenly within container */
+    margin-bottom: 30px;
+    position: relative; /* Set relative position so inner elements can be set to absolute */
+    max-width: 100%;
+    width: 350px;
+}
+
+/*
+    setting `position: absolute` and `left: 0px` puts
+    everything in the correct position
+*/ 
+
+/* 
+In CSS, ::before creates a `pseudo-element` that is the
+first child of the selected element.
+*/
+.progress-container::before {
+    content: ''; /* This needs to be set if ::before is given */
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1; /* This sets the object layer */
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1; /* This sets the object layer */
+    transition: 0.4s ease;
+}
+
+.circle {
+    background-color: white;
+    color: #999;
+    border-radius: 50%;
+    height:30px;
+    width:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #e0e0e0;
+    transition: .4s ease;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btn {
+    background-color: var(--line-border-fill);
+    color: white;
+    border: 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
