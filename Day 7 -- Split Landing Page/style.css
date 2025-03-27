@@ -1,6 +1,16 @@
 /*AMDG*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
 
+:root {
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --left-btn-hover-color: rgba(87, 84, 236, 1);
+  --right-btn-hover-color: rgba(28, 122, 28, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
 /* Note that star is the universal selector */
 * {
   box-sizing: border-box;
@@ -9,11 +19,125 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Horizontal spacing */
-  justify-content: center; /* Vertical spacing */
   height: 100vh; /*vh == viewport height (percentage of)*/
   overflow: hidden; /*Hide scrollbar by default*/
   margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: #333; */
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden; /* No text overflow between screens */
+}
+
+.split.left {
+  left: 0;
+  /* Why can we set url to a filepath? */
+  /* url is used to include a file -- doesn't have to be a webpage" */
+  background: url("ps.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* This pseudoelement is used to style content immediately before the element */
+/* Here, we're using this to add an overlay to the split.left container */
+/* Does before refer to zaxis or spatially before? */
+.split.left::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color)
+}
+
+.split.right {
+  right: 0;
+  background: url("xbox.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color)
+}
+
+.split.right, .split.left {
+  transition: all var(--speed) ease-in-out
+}
+
+h1 {
+  /* rem: ``root em" A relative unit that sets font size relative to the "root" font size. 4rem means 4 times root size */
+  font-size: 4rem;
+  color: #fff;
+  position: absolute; /* windshield sticker effect */
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.btn {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  text-decoration: none; /* Take away the text underline */
+  text-transform: uppercase; /* Make the text uppercase */
+  white-space: nowrap; /*Prevent text from wrapping*/
+  border-style: solid;
+  color: white;
+  border-color: white;
+  border-width: 2px;
+  padding: 20px 70px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.split.left .btn:hover {
+  background-color: var(--left-btn-hover-color);
+  border-color: var(--left-btn-hover-color);
+}
+
+.split.right .btn:hover {
+  background-color: var(--right-btn-hover-color);
+  border-color: var(--right-btn-hover-color);
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 10px 40px;
+  }
 }

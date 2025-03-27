@@ -1,0 +1,46 @@
+/*AMDG*/
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: #e1e1e1;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  text-align: center;
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+}
+
+.info-box {
+  border: 1px solid #999;
+  background-color: #eee;
+  /* Offset shadow one pixel to the right and bottom */
+  /* Blur setting of 3px */
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  /* inline-flex is like flex, but the object is an inline element instead of block */
+  display: inline-flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 150px;
+  padding: 20px;
+  margin: 10px;
+  flex-direction: column;
+  position: relative;
+}
+
+.info-box small {
+  position: absolute;
+  top: -24px;
+  width: 100%;
+  color: #555;
+  font-size: 14px;
+}
