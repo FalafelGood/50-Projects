@@ -1,0 +1,54 @@
+/*AMDG*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: #2b88f0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+}
+
+h3 {
+  color: white;
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+textarea {
+  border: none;
+  /* Why does display: block not automatically set the width to 100% */
+  display: block;
+  width: 50%;
+  max-width: 500px;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background-color: #f0932b;
+  color: white;
+  /* border-style: solid; */
+  border-radius: 50px;
+  padding: 10px;
+  margin: 0 5px 10px 0;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.tag.highlight {
+  background-color: #273c75
+}
