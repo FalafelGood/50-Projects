@@ -1,0 +1,105 @@
+/*AMDG*/
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:400,600&display=swap'); */
+
+:root {
+  --border-color: #144fc6;
+  --fill-color: #6ab3f8;
+}
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: #3494e4;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal spacing */
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.cup {
+  background-color: white;
+  border: 4px solid var(--border-color);
+  color: var(--border-color);
+  border-radius: 0 0 40px 40px;
+  height: 330px;
+  width: 150px;
+  margin: 15px 0;
+  /* Why would you display flex and not also align-items + justify-content? 
+  You can do this for children.
+  */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  overflow: hidden;
+}
+
+.cup.small {
+  width: 50px;
+  height: 95px;
+  border-radius: 0 0 15px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+  justify-content: center;
+  /* align-items: center; */
+  text-align: center;
+}
+
+.cup.small.full {
+  background-color: var(--fill-color);
+  color: white;
+}
+
+.cups {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  width: 280px;
+}
+
+.remaining {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  transition: 0.3s ease;
+}
+
+.remaining span{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* .remaining .small{
+  font-size: 16px;
+} */
+
+.percentage {
+  background-color: var(--fill-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  height: 0;
+  transition: 0.3s ease;
+}
