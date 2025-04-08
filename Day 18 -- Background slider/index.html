@@ -1,0 +1,47 @@
+<!--AMDG-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--Set viewport width to the device width at 1.0 scale-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Background Slider</title>
+</head>
+
+<!--
+In this project, we'll make a small album of photos that are flipped through one by one with arrow buttons.
+
+Because the number of photos is small, we can have all the photos referenced directly in the html. For larger albums, I might have a folder of numbered photos that I then use javascript to generate the html for.
+
+Also, rather than adding img elements to the album, our strategy is going to be adding background images to divs... I think this will make it easier to style the CSS, though I'm not entirely sure what the advantage of this approach is.
+-->
+
+<body>
+  <div class="slider-container">
+    <div class="slide active" style="background-image: url(https://plus.unsplash.com/premium_photo-1672115680958-54438df0ab82?q=80&w=1184&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+    </div>
+
+    <div class="slide" style="background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+    </div>
+
+    <div class="slide" style="background-image: url(https://plus.unsplash.com/premium_photo-1661962302792-4b05d3e08513?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+    </div>
+
+    <div class="slide" style="background-image: url(https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+    </div>
+
+    <button class="arrow left-arrow" id="left">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <button class="arrow right-arrow" id="right">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

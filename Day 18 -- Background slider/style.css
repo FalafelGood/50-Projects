@@ -1,0 +1,104 @@
+/*AMDG*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+  /* 
+  For now this is static -- later we will use javascript to update this background-image to whatever the "active" class is.
+  Note as well that we're setting the background image of the body and not the slide container. 
+  That's because this image will be slightly darkened.
+  */
+  /* background-image: url('https://plus.unsplash.com/premium_photo-1672115680958-54438df0ab82?q=80&w=1184&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+  background-position: center;
+  background-size: cover;
+  transition: 0.4s;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.slider-container {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  height: 70vh;
+  width: 70vw;
+  /* Does this make a difference? */
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  opacity: 0;
+  /* 
+  For some reason this works with 100vh 100vw but not 100%, 100%. Why is this?
+
+  100% refers to parent container, which is not the same as vh and vw.
+  */
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  /* 
+  Why these these offsets? 
+  
+  Because for the slider container we set a height and width of 70vh and 70vw. Top -15 and left -15 is needed to make sure the image is properly centered with the background.
+  */
+  top: -15vh;
+  left: -15vw;
+  transition: 0.4s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.arrow {
+  /* Position fixed is fine here since we have nothing to scroll */
+  position: fixed;
+  background-color: transparent;
+  padding: 20px;
+  font-size: 30px;
+  border: 2px solid orange;
+  /* top sets the top of the element 50% from the top of the container */
+  top: 50%;
+  /* To truely center it, we need to translate it by half of the object's height.
+  */
+  transform: translateY(-50%);
+  z-index: 100;
+  color: white;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.left-arrow {
+  /* Why 65 pixels? 
+  A bit arbitrary...
+  */
+  left: calc(15vw - 65px);
+}
+
+.right-arrow {
+  right: calc(15vw - 65px);
+}

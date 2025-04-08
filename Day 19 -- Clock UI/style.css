@@ -1,0 +1,136 @@
+/*AMDG*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');;
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --clock-face: #d8d8d8;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --clock-face: #595959; 
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+html {
+  transition: all 0.4s ease-in;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+}
+
+.toggle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 5px;
+  border: none;
+  /* border: solid 0px var(--primary-color); */
+  border-radius: 4px;
+  position: absolute;
+  font-size: 16px;
+  top: 100px;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: var(--clock-face);
+  z-index: -1;
+  border-radius: 50%;
+  transition: background-color 0.4s ease-in;
+}
+
+.hand {
+  background-color: var(--primary-color);
+  /* Absolute means that we set positions relative to parent class (with relative or absolute positioning) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  height: 65px;
+  width: 3px;
+  transition: background-color 0.4s ease-in;
+}
+
+.hand.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 50px;
+}
+
+.hand.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.hand.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  background-color: red;
+  height: 80px;
+}
+
+.center-point {
+  background-color: red;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: background-color 0.4s ease-in;
+}
+
+.time {
+  font-size: 60px;
+}
+
+.date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.date .circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  transition: all 0.5s ease-in;
+}
