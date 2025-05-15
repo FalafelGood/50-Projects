@@ -1,0 +1,58 @@
+/*AMDG*/
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: steelblue;
+  height: 100vh;
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@media (width <= 800px) {
+  body.horizontal {
+    animation: rotate 0.7s ease-in;
+    animation-fill-mode: forwards;
+  }
+}
+
+@media (width > 800px) {
+  body.vertical {
+    animation: rotate 0.7s ease-in;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* @media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+} */
+
+.empty {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  flex: none;
+}

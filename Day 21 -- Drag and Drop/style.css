@@ -1,0 +1,52 @@
+/*AMDG*/
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: steelblue;
+  height: 100vh;
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+
+.empty {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  flex: none;
+}
+
+.fill {
+  background-image: url('https://images.unsplash.com/photo-1599113615507-13f78150fb2e?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  height: 95px;
+  width: 95px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.hold {
+  border: solid 5px #ccc;
+}
+
+.hovered {
+  background-color: #333;
+  border-color: white;
+  border-style: dashed;
+}

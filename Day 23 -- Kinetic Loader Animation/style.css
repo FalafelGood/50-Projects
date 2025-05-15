@@ -1,0 +1,81 @@
+/*AMDG*/
+
+/* Note that star is the universal selector */
+* {
+  box-sizing: border-box;
+  /* If we add padding to an element, it doesn't affect the width of it */
+}
+
+body {
+  background-color: #2c3e50;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center; /* Horizontal spacing */
+  justify-content: center; /* Vertical spacing */
+  height: 100vh; /*vh == viewport height (percentage of)*/
+  overflow: hidden; /*Hide scrollbar by default*/
+  margin: 0;
+}
+
+/* We'll use before and after pseudoselectors to position our triangles. Position of the .kinetic div therefore needs to be relative. */
+.kinetic {
+  position: relative;
+  height: 80px;
+  width: 80px;
+}
+
+.kinetic::after, .kinetic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*
+    We can use some CSS trickery to make a triangle.
+
+    Basically, we abuse the border property to draw triangles even though that strictly speaking isn't allowed.
+
+    We make the height and width of the box 0 so the only thing present is the border of the box.
+    The borders intersect eachother as triangles.
+
+    When we make all the borders transparent except for one, we get a triangle.
+  */
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-bottom-color: #fff;
+  animation: rotateA 2s linear infinite 0.5s;
+}
+
+.kinetic::before{
+  border-bottom-color: cornflowerblue;
+  transform: rotate(90deg);
+  animation: rotateB 2s linear infinite;
+}
+
+@keyframes rotateA {
+  0%, 25% {
+    transform: rotate(0deg);
+  }
+
+  50%, 75% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateB {
+  0%, 25% {
+    transform: rotate(90deg);
+  }
+
+  50%, 75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(450deg);
+  }
+}
